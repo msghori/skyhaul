@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 
@@ -14,6 +14,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -38,26 +39,19 @@ export default function Navbar() {
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white/95 backdrop-blur-md shadow-lg py-2"
-          : "bg-white py-4"
+          : "bg-white py-3 sm:py-4"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 shrink-0">
-          {/* <div className="w-10 h-10 bg-navy-900 rounded-lg flex items-center justify-center">
-            <span className="text-white font-extrabold text-lg leading-none">S</span>
-          </div>
-          <div className="flex flex-col leading-tight">
-            <span className="text-xl font-extrabold text-navy-900 tracking-tight">SKYHAUL</span>
-            <span className="text-[10px] font-medium text-navy-500 tracking-widest uppercase -mt-0.5">Logistics</span>
-          </div> */}
           <img
             src="/images/logo-new.png"
             alt="skyhaul"
-            width="170"
-            height="179"
+            className="h-8 sm:h-10 w-auto"
           />
         </Link>
 
@@ -93,10 +87,10 @@ export default function Navbar() {
           </Link>
         </div>
 
-        <div className="flex items-center gap-3 lg:hidden">
+        <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
           <Link
             to="/contact"
-            className="px-4 py-2 bg-gold-400 text-navy-900 text-xs font-bold rounded-lg"
+            className="px-3 sm:px-4 py-2 bg-gold-400 text-navy-900 text-xs font-bold rounded-lg"
           >
             Get a Quote
           </Link>
@@ -111,14 +105,14 @@ export default function Navbar() {
       </nav>
 
       <div
-        className={`lg:hidden fixed inset-0 top-0 bg-white z-40 transition-all duration-300 ${
+        className={`lg:hidden fixed left-0 right-0 bottom-0 bg-white z-40 transition-all duration-300 overflow-y-auto ${
           isOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
-        style={{ top: scrolled ? "56px" : "64px" }}
+        style={{ top: headerRef.current ? `${headerRef.current.offsetHeight}px` : "64px" }}
       >
-        <div className="flex flex-col p-6 gap-2">
+        <div className="flex flex-col p-4 sm:p-6 gap-1 bg-white min-h-full shadow-xl">
           {navLinks.map((link) => (
             <Link
               key={link.path}

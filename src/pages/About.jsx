@@ -205,7 +205,7 @@ function StoryImage() {
         <img
           src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&h=600&fit=crop"
           alt="Skyhaul cargo ship representing global logistics capability"
-          className="w-full h-[400px] object-cover"
+          className="w-full h-[250px] sm:h-[300px] lg:h-[400px] object-cover"
           loading="lazy"
         />
       </div>

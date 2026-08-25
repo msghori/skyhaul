@@ -120,7 +120,7 @@ function MapPlaceholder() {
   return (
     <div
       ref={ref}
-      className={`rounded-2xl overflow-hidden border border-navy-100 bg-navy-50 flex items-center justify-center min-h-[400px] ${isInView ? 'animate-fade-in' : 'opacity-0'}`}
+      className={`rounded-2xl overflow-hidden border border-navy-100 bg-navy-50 flex items-center justify-center min-h-[280px] sm:min-h-[400px] ${isInView ? 'animate-fade-in' : 'opacity-0'}`}
     >
       <div className="text-center p-8">
         <MapPin size={48} className="text-navy-300 mx-auto mb-4" />

@@ -18,7 +18,7 @@ export default function CTASection({ title, subtitle, buttonText, buttonTo = '/c
         {subtitle && <p className="text-white/80 text-lg mb-8 max-w-xl mx-auto">{subtitle}</p>}
         <Link
           to={buttonTo}
-          className="inline-flex items-center px-8 py-4 bg-gold-400 hover:bg-gold-500 text-navy-900 font-bold text-base rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-gold-400/25 active:scale-[0.97]"
+          className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-gold-400 hover:bg-gold-500 text-navy-900 font-bold text-sm sm:text-base rounded-lg transition-all duration-200 hover:shadow-xl hover:shadow-gold-400/25 active:scale-[0.97]"
         >
           {buttonText}
         </Link>

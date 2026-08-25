@@ -82,8 +82,7 @@ export default function Footer() {
               <img
                 src="/images/logo-white.png"
                 alt="skyhaul"
-                width="180"
-                height="179"
+                className="h-10 sm:h-12 w-auto"
               />
             </Link>
             <p className="text-navy-300 text-sm leading-relaxed mb-6 max-w-xs">
@@ -186,16 +185,16 @@ export default function Footer() {
               <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3">
                 Newsletter
               </h4>
-              <form className="flex" onSubmit={(e) => e.preventDefault()}>
+              <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
                 <input
                   type="email"
                   placeholder="Your email"
-                  className="flex-1 px-3 py-2 bg-navy-800 border border-navy-700 rounded-l-lg text-sm text-white placeholder-navy-400 focus:outline-none focus:border-gold-400 transition-colors"
+                  className="flex-1 px-3 py-2 bg-navy-800 border border-navy-700 rounded-lg sm:rounded-r-none text-sm text-white placeholder-navy-400 focus:outline-none focus:border-gold-400 transition-colors"
                   aria-label="Email for newsletter"
                 />
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-gold-400 hover:bg-gold-500 text-navy-900 text-sm font-bold rounded-r-lg transition-colors"
+                  className="px-4 py-2 bg-gold-400 hover:bg-gold-500 text-navy-900 text-sm font-bold rounded-lg sm:rounded-l-none transition-colors"
                 >
                   Subscribe
                 </button>

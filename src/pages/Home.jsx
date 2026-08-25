@@ -257,7 +257,7 @@ function AboutSection() {
               <img
                 src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=800&h=600&fit=crop"
                 alt="Skyhaul logistics team managing freight operations"
-                className="w-full h-[400px] object-cover"
+                className="w-full h-[250px] sm:h-[300px] lg:h-[400px] object-cover"
                 loading="lazy"
               />
             </div>
@@ -304,7 +304,7 @@ function HowItWorksSection() {
           title="How It Works"
           subtitle="A simple, streamlined process from quote to delivery."
         />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {howItWorks.map((item) => (
             <HowItWorksStep key={item.step} {...item} />
           ))}
