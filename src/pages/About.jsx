@@ -1,70 +1,90 @@
-import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
-import { Target, Eye, Heart, ArrowRight, Award, Users, Globe, Truck } from 'lucide-react'
-import Button from '../components/Button'
-import StatsSection from '../components/StatsSection'
-import CTASection from '../components/CTASection'
-import SectionHeading from '../components/SectionHeading'
-import useInView from '../components/useInView'
-import { stats } from '../data/content'
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import {
+  Target,
+  Eye,
+  Heart,
+  ArrowRight,
+  Award,
+  Users,
+  Globe,
+  Truck,
+} from "lucide-react";
+import Button from "../components/Button";
+import StatsSection from "../components/StatsSection";
+import CTASection from "../components/CTASection";
+import SectionHeading from "../components/SectionHeading";
+import useInView from "../components/useInView";
+import { stats } from "../data/content";
 
 const values = [
   {
     icon: Target,
-    title: 'Excellence',
-    description: 'We strive for excellence in every shipment, every interaction, and every solution we deliver.',
+    title: "Excellence",
+    description:
+      "We strive for excellence in every shipment, every interaction, and every solution we deliver.",
   },
   {
     icon: Heart,
-    title: 'Integrity',
-    description: 'We conduct business with honesty and transparency, building trust with every client relationship.',
+    title: "Integrity",
+    description:
+      "We conduct business with honesty and transparency, building trust with every client relationship.",
   },
   {
     icon: Globe,
-    title: 'Innovation',
-    description: 'We embrace technology and creative thinking to continuously improve our logistics solutions.',
+    title: "Innovation",
+    description:
+      "We embrace technology and creative thinking to continuously improve our logistics solutions.",
   },
   {
     icon: Users,
-    title: 'Partnership',
-    description: 'We treat our clients as partners, working collaboratively to achieve shared success.',
+    title: "Partnership",
+    description:
+      "We treat our clients as partners, working collaboratively to achieve shared success.",
   },
-]
+];
 
 const team = [
   {
-    name: 'Robert Anderson',
-    role: 'Managing Director',
-    description: 'With over 20 years in logistics, Robert leads Skyhaul with a vision for innovation and excellence.',
+    name: "Robert Anderson",
+    role: "Managing Director",
+    description:
+      "With over 20 years in logistics, Robert leads Skyhaul with a vision for innovation and excellence.",
   },
   {
-    name: 'Emma Williams',
-    role: 'Head of Operations',
-    description: 'Emma ensures seamless operations across all our service lines, overseeing our global logistics network.',
+    name: "Emma Williams",
+    role: "Head of Operations",
+    description:
+      "Emma ensures seamless operations across all our service lines, overseeing our global logistics network.",
   },
   {
-    name: 'Michael Chen',
-    role: 'Business Development Director',
-    description: 'Michael builds and nurtures client relationships, ensuring our services meet evolving business needs.',
+    name: "Michael Chen",
+    role: "Business Development Director",
+    description:
+      "Michael builds and nurtures client relationships, ensuring our services meet evolving business needs.",
   },
   {
-    name: 'Sarah Mitchell',
-    role: 'Customer Experience Manager',
-    description: 'Sarah leads our customer support team, ensuring every client receives exceptional service.',
+    name: "Sarah Mitchell",
+    role: "Customer Experience Manager",
+    description:
+      "Sarah leads our customer support team, ensuring every client receives exceptional service.",
   },
-]
+];
 
 export default function About() {
   useEffect(() => {
-    document.title = 'About Us - Skyhaul Logistics'
-  }, [])
+    document.title = "About Us - Skyhaul Logistics";
+  }, []);
 
   return (
     <>
       <Helmet>
         <title>About Us - Skyhaul Logistics | Our Story & Mission</title>
-        <meta name="description" content="Learn about Skyhaul's story, mission, vision, and the team behind the UK's trusted logistics and freight solutions provider." />
+        <meta
+          name="description"
+          content="Learn about Skyhaul's story, mission, vision, and the team behind the UK's trusted logistics and freight solutions provider."
+        />
       </Helmet>
 
       {/* Hero */}
@@ -78,9 +98,12 @@ export default function About() {
           <div className="absolute inset-0 bg-gradient-to-b from-skyblue/80 to-skyblue" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 animate-fade-in-up">About Skyhaul</h1>
-          <p className="text-white/80 text-lg max-w-xl mx-auto animate-fade-in-up animation-delay-200">
-            Discover the story, mission, and people behind the UK's trusted logistics partner.
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 animate-fade-in-up">
+            About Skyhaul
+          </h1>
+          <p className="text-white/90 text-lg max-w-xl mx-auto animate-fade-in-up animation-delay-200">
+            Discover the story, mission, and people behind the UK's trusted
+            logistics partner.
           </p>
         </div>
       </section>
@@ -152,9 +175,21 @@ export default function About() {
           />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { icon: Award, title: 'Proven Track Record', text: 'Over a decade of successful deliveries and satisfied clients across the globe.' },
-              { icon: Globe, title: 'Global Network', text: 'Extensive partnerships and routes covering over 50 countries on six continents.' },
-              { icon: Truck, title: 'Tailored Solutions', text: 'Every client receives a customised logistics strategy designed for their unique needs.' },
+              {
+                icon: Award,
+                title: "Proven Track Record",
+                text: "Over a decade of successful deliveries and satisfied clients across the globe.",
+              },
+              {
+                icon: Globe,
+                title: "Global Network",
+                text: "Extensive partnerships and routes covering over 50 countries on six continents.",
+              },
+              {
+                icon: Truck,
+                title: "Tailored Solutions",
+                text: "Every client receives a customised logistics strategy designed for their unique needs.",
+              },
             ].map((item, i) => (
               <WhyCard key={item.title} {...item} index={i} />
             ))}
@@ -170,37 +205,53 @@ export default function About() {
         buttonText="Get in Touch"
       />
     </>
-  )
+  );
 }
 
 function StoryContent() {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
-    <div ref={ref} className={isInView ? 'animate-slide-in-left' : 'opacity-0'}>
-      <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-6">Our Story</h2>
+    <div ref={ref} className={isInView ? "animate-slide-in-left" : "opacity-0"}>
+      <h2 className="text-3xl sm:text-4xl font-extrabold text-navy-900 mb-6">
+        Our Story
+      </h2>
       <p className="text-navy-500 leading-relaxed mb-4">
-        Founded with a clear vision to transform the logistics landscape in the United Kingdom, Skyhaul has grown from a small freight forwarding operation into a comprehensive logistics solutions provider trusted by businesses across the country and beyond.
+        Founded with a clear vision to transform the logistics landscape in the
+        United Kingdom, Skyhaul has grown from a small freight forwarding
+        operation into a comprehensive logistics solutions provider trusted by
+        businesses across the country and beyond.
       </p>
       <p className="text-navy-500 leading-relaxed mb-4">
-        Our journey began with a simple belief: that every business deserves a logistics partner who treats their cargo as if it were their own. This philosophy has driven us to invest in cutting-edge technology, expand our global network, and recruit the finest talent in the industry.
+        Our journey began with a simple belief: that every business deserves a
+        logistics partner who treats their cargo as if it were their own. This
+        philosophy has driven us to invest in cutting-edge technology, expand
+        our global network, and recruit the finest talent in the industry.
       </p>
       <p className="text-navy-500 leading-relaxed mb-6">
-        Today, we serve hundreds of businesses ranging from ambitious startups to established multinational corporations, providing end-to-end logistics solutions that include road freight, air cargo, sea shipping, warehousing, customs clearance, and supply chain management.
+        Today, we serve hundreds of businesses ranging from ambitious startups
+        to established multinational corporations, providing end-to-end
+        logistics solutions that include road freight, air cargo, sea shipping,
+        warehousing, customs clearance, and supply chain management.
       </p>
       <div className="flex items-center gap-4">
         <div className="w-16 h-1 bg-gold-400 rounded-full" />
-        <span className="text-sm font-bold text-navy-900">Established with Purpose</span>
+        <span className="text-sm font-bold text-navy-900">
+          Established with Purpose
+        </span>
       </div>
     </div>
-  )
+  );
 }
 
 function StoryImage() {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
-    <div ref={ref} className={`relative ${isInView ? 'animate-slide-in-right' : 'opacity-0'}`}>
+    <div
+      ref={ref}
+      className={`relative ${isInView ? "animate-slide-in-right" : "opacity-0"}`}
+    >
       <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy-900/10">
         <img
           src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&h=600&fit=crop"
@@ -210,70 +261,79 @@ function StoryImage() {
         />
       </div>
     </div>
-  )
+  );
 }
 
 function MissionVisionCard({ icon: Icon, title, text }) {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-2xl p-8 border border-navy-100 hover:shadow-xl transition-all duration-300 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      className={`bg-white rounded-2xl p-8 border border-navy-100 hover:shadow-xl transition-all duration-300 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
     >
       <div className="w-14 h-14 rounded-xl bg-skyblue group-hover:bg-gold-400/10 flex items-center justify-center mb-5 transition-colors duration-300">
-        <Icon size={24} className="text-white group-hover:text-gold-500 transition-colors duration-300" />
+        <Icon
+          size={24}
+          className="text-white group-hover:text-gold-500 transition-colors duration-300"
+        />
       </div>
       <h3 className="text-xl font-bold text-navy-900 mb-4">{title}</h3>
       <p className="text-navy-500 text-sm leading-relaxed">{text}</p>
     </div>
-  )
+  );
 }
 
 function ValueCard({ icon: Icon, title, description, index }) {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
     <div
       ref={ref}
-      className={`text-center p-6 bg-white rounded-2xl border border-navy-100 hover:border-gold-400/50 hover:shadow-lg transition-all duration-300 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      className={`text-center p-6 bg-white rounded-2xl border border-navy-100 hover:border-gold-400/50 hover:shadow-lg transition-all duration-300 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="w-14 h-14 rounded-xl bg-skyblue group-hover:bg-gold-400/10 flex items-center justify-center mx-auto mb-4 transition-colors duration-300">
-        <Icon size={24} className="text-white group-hover:text-gold-500 transition-colors duration-300" />
+        <Icon
+          size={24}
+          className="text-white group-hover:text-gold-500 transition-colors duration-300"
+        />
       </div>
       <h3 className="font-bold text-navy-900 mb-2">{title}</h3>
       <p className="text-navy-500 text-sm leading-relaxed">{description}</p>
     </div>
-  )
+  );
 }
 
 function TeamCard({ name, role, description, index }) {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
     <div
       ref={ref}
-      className={`bg-white rounded-2xl p-6 border border-navy-100 hover:shadow-xl transition-all duration-300 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      className={`bg-white rounded-2xl p-6 border border-navy-100 hover:shadow-xl transition-all duration-300 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       <div className="w-16 h-16 rounded-full bg-skyblue flex items-center justify-center text-white font-extrabold text-xl mb-4">
-        {name.split(' ').map(n => n[0]).join('')}
+        {name
+          .split(" ")
+          .map((n) => n[0])
+          .join("")}
       </div>
       <h3 className="font-bold text-navy-900">{name}</h3>
       <p className="text-gold-500 text-sm font-semibold mb-3">{role}</p>
       <p className="text-navy-500 text-sm leading-relaxed">{description}</p>
     </div>
-  )
+  );
 }
 
 function WhyCard({ icon: Icon, title, text, index }) {
-  const [ref, isInView] = useInView()
+  const [ref, isInView] = useInView();
 
   return (
     <div
       ref={ref}
-      className={`flex gap-4 p-6 bg-white rounded-2xl border border-navy-100 hover:shadow-lg transition-all duration-300 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      className={`flex gap-4 p-6 bg-white rounded-2xl border border-navy-100 hover:shadow-lg transition-all duration-300 ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
       style={{ animationDelay: `${index * 0.15}s` }}
     >
       <div className="w-12 h-12 rounded-xl bg-skyblue flex items-center justify-center shrink-0">
@@ -284,5 +344,5 @@ function WhyCard({ icon: Icon, title, text, index }) {
         <p className="text-navy-500 text-sm leading-relaxed">{text}</p>
       </div>
     </div>
-  )
+  );
 }

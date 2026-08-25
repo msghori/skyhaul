@@ -51,7 +51,7 @@ export default function Navbar() {
           <img
             src={`${import.meta.env.BASE_URL}images/logo-new.png`}
             alt="skyhaul"
-            className="h-8 sm:h-10 w-auto"
+            className="w-[100px] md:w-[150px]  h-auto"
           />
         </Link>
 
