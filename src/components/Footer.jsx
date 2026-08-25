@@ -80,7 +80,7 @@ export default function Footer() {
                 <span className="text-[10px] font-medium text-navy-300 tracking-widest uppercase -mt-0.5">Logistics</span>
               </div> */}
               <img
-                src="/images/logo-white.png"
+                src={`${import.meta.env.BASE_URL}images/logo-white.png`}
                 alt="skyhaul"
                 className="h-10 sm:h-12 w-auto"
               />

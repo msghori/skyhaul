@@ -49,7 +49,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2 shrink-0">
           <img
-            src="/images/logo-new.png"
+            src={`${import.meta.env.BASE_URL}images/logo-new.png`}
             alt="skyhaul"
             className="h-8 sm:h-10 w-auto"
           />
@@ -110,7 +110,11 @@ export default function Navbar() {
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
         }`}
-        style={{ top: headerRef.current ? `${headerRef.current.offsetHeight}px` : "64px" }}
+        style={{
+          top: headerRef.current
+            ? `${headerRef.current.offsetHeight}px`
+            : "64px",
+        }}
       >
         <div className="flex flex-col p-4 sm:p-6 gap-1 bg-white min-h-full shadow-xl">
           {navLinks.map((link) => (
