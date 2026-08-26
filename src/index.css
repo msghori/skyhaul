@@ -103,3 +103,7 @@ body {
 .animation-delay-600 {
   animation-delay: 0.6s;
 }
+
+.carousel-slide {
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+}

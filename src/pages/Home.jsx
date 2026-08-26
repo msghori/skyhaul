@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import {
@@ -47,46 +47,8 @@ export default function Home() {
         />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-skyblue">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop"
-            alt="Modern logistics warehouse with cargo operations"
-            className="w-full h-full object-cover opacity-25"
-          />
-          <div className="absolute inset-0 bg-skyblue" />
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white backdrop-blur-sm rounded-full text-gold-400 text-sm font-semibold mb-6 animate-fade-in">
-              <Shield size={14} />
-              Trusted UK Logistics Partner
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 animate-fade-in-up">
-              Moving Your
-              <span className="text-white block">Business Forward</span>
-            </h1>
-            <p className="text-lg text-white/90 leading-relaxed mb-8 max-w-lg animate-fade-in-up animation-delay-200">
-              Reliable logistics and freight solutions connecting the UK to the
-              world. From road and air freight to complete supply chain
-              management, we deliver with precision, speed, and care.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up animation-delay-400">
-              <Button to="/contact" size="lg">
-                Get a Quote
-                <ArrowRight size={18} className="ml-2" />
-              </Button>
-              <Button to="/services" variant="outline-white" size="lg">
-                Explore Our Services
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent" />
-      </section>
+      {/* Hero Carousel */}
+      <HeroCarousel />
 
       {/* Quick Quote Banner */}
       <section className="relative -mt-10 z-10 mb-16 hidden">
@@ -215,6 +177,169 @@ export default function Home() {
         buttonText="Get a Quote"
       />
     </>
+  );
+}
+
+function HeroCarousel() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const slides = [
+    {
+      type: "video",
+      src: "video/a.mp4",
+      heading: "Skyhaul In Motion",
+      title: "See Us In Action",
+      sub: "Watch how we manage end-to-end logistics — from warehouse operations to final delivery.",
+    },
+    {
+      type: "image",
+      bg: "images/slide2.jpg",
+      alt: "Truck transporting goods on road",
+      heading: "Reliable Transport Network",
+      title: "Transport & Logistics",
+      sub: "Nationwide road freight and transport logistics. Real-time GPS tracking, scheduled routes, and reliable fleet management.",
+    },
+    {
+      type: "image",
+      bg: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop",
+      alt: "Worker loading goods into truck",
+      heading: "Moving Your Business Forward",
+      title: "Loading & Delivery",
+      sub: "Efficient loading and last-mile delivery solutions. Our trained teams handle every shipment with care, ensuring goods are safely loaded and delivered on time.",
+    },
+    {
+      type: "image",
+      bg: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&h=1080&fit=crop",
+      alt: "Warehouse storage facility",
+      heading: "Smart Warehousing Solutions",
+      title: "Warehouse & Storage",
+      sub: "State-of-the-art warehousing with secure storage, inventory management, and seamless distribution across the UK.",
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentSlide((prev) => (prev + 1) % slides.length);
+        setIsAnimating(false);
+      }, 500);
+    }, 8000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const goToSlide = (index) => {
+    if (index === currentSlide) return;
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentSlide(index);
+      setIsAnimating(false);
+    }, 400);
+  };
+
+  return (
+    <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-skyblue">
+      {slides.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 transition-opacity duration-700 ${
+            index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
+          }`}
+        >
+          {slide.type === "image" ? (
+            <img
+              src={slide.bg}
+              alt={slide.alt}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <video
+              src={slide.src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          )}
+          <div className="absolute inset-0 bg-navy-900/50" />
+        </div>
+      ))}
+
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 sm:py-40 w-full">
+        <div className="max-w-2xl">
+          <div
+            className={`inline-flex items-center gap-2 px-4 py-2 bg-white backdrop-blur-sm rounded-full text-gold-400 text-sm font-semibold mb-6 transition-all duration-500 ${
+              isAnimating
+                ? "opacity-0 translate-x-8"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
+            <Shield size={14} />
+            Trusted UK Logistics Partner
+          </div>
+          <h1
+            className={`text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-2 transition-all duration-500 delay-100 ${
+              isAnimating
+                ? "opacity-0 translate-x-12"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
+            {slides[currentSlide].heading}
+          </h1>
+          <h2
+            className={`text-xl sm:text-2xl font-bold text-gold-400 mb-6 transition-all duration-500 delay-200 ${
+              isAnimating
+                ? "opacity-0 translate-x-16"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
+            {slides[currentSlide].title}
+          </h2>
+          <p
+            className={`text-lg text-white/90 leading-relaxed mb-8 max-w-lg transition-all duration-500 delay-300 ${
+              isAnimating
+                ? "opacity-0 translate-x-16"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
+            {slides[currentSlide].sub}
+          </p>
+          <div
+            className={`flex flex-col sm:flex-row gap-4 transition-all duration-500 delay-[400ms] ${
+              isAnimating
+                ? "opacity-0 translate-x-20"
+                : "opacity-100 translate-x-0"
+            }`}
+          >
+            <Button to="/contact" size="lg">
+              Get a Quote
+              <ArrowRight size={18} className="ml-2" />
+            </Button>
+            <Button to="/services" variant="outline-white" size="lg">
+              Explore Our Services
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? "bg-gold-400 w-8"
+                : "bg-white/50 hover:bg-white/80"
+            }`}
+          />
+        ))}
+      </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent z-20" />
+    </section>
   );
 }
 
