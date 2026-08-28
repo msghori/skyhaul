@@ -12,7 +12,6 @@ import {
   Truck,
 } from "lucide-react";
 import Button from "../components/Button";
-import StatsSection from "../components/StatsSection";
 import CTASection from "../components/CTASection";
 import SectionHeading from "../components/SectionHeading";
 import useInView from "../components/useInView";
@@ -196,8 +195,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <StatsSection stats={stats} />
 
       <CTASection
         title="Partner With Skyhaul"

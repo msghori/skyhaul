@@ -9,23 +9,19 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+44 07300066079"],
+    details: ["+44 7300066079"],
     href: "tel:+447300066079",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@skyhaul.co.uk", "quotes@skyhaul.co.uk"],
-    href: "mailto:info@skyhaul.co.uk",
+    details: ["Skyhaul@hotmail.com"],
+    href: "mailto:Skyhaul@hotmail.com",
   },
   {
     icon: Clock,
     title: "Business Hours",
-    details: [
-      "Monday - Friday: 8:00 AM - 6:00 PM",
-      "Saturday: 9:00 AM - 1:00 PM",
-      "Sunday: Closed",
-    ],
+    details: ["AnyTime - 24/7", "Monday - Sunday"],
   },
 ];
 

@@ -16,7 +16,6 @@ import {
 import Button from "../components/Button";
 import ServiceCard from "../components/ServiceCard";
 import TestimonialCarousel from "../components/TestimonialCarousel";
-import StatsSection from "../components/StatsSection";
 import CTASection from "../components/CTASection";
 import SectionHeading from "../components/SectionHeading";
 import useInView from "../components/useInView";
@@ -145,9 +144,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Stats */}
-      <StatsSection stats={stats} />
 
       {/* About Section */}
       <AboutSection />

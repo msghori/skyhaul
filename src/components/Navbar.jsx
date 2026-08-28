@@ -77,7 +77,7 @@ export default function Navbar() {
             className="flex items-center gap-2 text-sm text-navy-600 hover:text-navy-900 transition-colors"
           >
             <Phone size={16} />
-            <span className="font-medium">+44 07300066079</span>
+            <span className="font-medium">+44 7300066079</span>
           </a>
           <Link
             to="/contact"
@@ -135,7 +135,7 @@ export default function Navbar() {
             className="flex items-center gap-3 px-4 py-3 text-navy-600 font-medium"
           >
             <Phone size={18} />
-            +44 07300066079
+            +44 7300066079
           </a>
         </div>
       </div>

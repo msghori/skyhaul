@@ -58,10 +58,7 @@ const quickLinks = [
 
 const serviceLinks = [
   { path: "/services", label: "Road Freight" },
-  { path: "/services", label: "Air Freight" },
-  { path: "/services", label: "Sea Freight" },
   { path: "/services", label: "Warehousing" },
-  { path: "/services", label: "Customs Clearance" },
   { path: "/services", label: "Express Delivery" },
 ];
 
@@ -90,7 +87,7 @@ export default function Footer() {
               world. Trusted by businesses for reliable, efficient, and safe
               cargo transportation.
             </p>
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               {[LinkedinIcon, TwitterIcon, FacebookIcon].map((Icon, i) => (
                 <a
                   key={i}
@@ -101,7 +98,7 @@ export default function Footer() {
                   <Icon size={16} />
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
 
           <div>
@@ -159,39 +156,19 @@ export default function Footer() {
                   href="tel:+447300066079"
                   className="text-navy-300 hover:text-gold-400 text-sm transition-colors"
                 >
-                  +44 07300066079
+                  +44 7300066079
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-white shrink-0" />
                 <a
-                  href="mailto:info@skyhaul.co.uk"
+                  href="mailto:Skyhaul@hotmail.com"
                   className="text-navy-300 hover:text-gold-400 text-sm transition-colors"
                 >
-                  info@skyhaul.co.uk
+                  Skyhaul@hotmail.com
                 </a>
               </li>
             </ul>
-
-            <div className="mt-6">
-              <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3">
-                Newsletter
-              </h4>
-              <form className="flex flex-col sm:flex-row gap-2" onSubmit={(e) => e.preventDefault()}>
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="flex-1 px-3 py-2 bg-navy-800 border border-navy-700 rounded-lg sm:rounded-r-none text-sm text-white placeholder-navy-400 focus:outline-none focus:border-gold-400 transition-colors"
-                  aria-label="Email for newsletter"
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-gold-400 hover:bg-gold-500 text-navy-900 text-sm font-bold rounded-lg sm:rounded-l-none transition-colors"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </div>
           </div>
         </div>
 

@@ -303,9 +303,9 @@ export const whyChooseUs = [
       "Consistent, on-time deliveries you can count on, every single time.",
   },
   {
-    title: "Real-Time Tracking",
+    title: "Find Live Location",
     description:
-      "Full visibility into your shipments with our advanced GPS tracking system.",
+      "Track your shipment’s location in real time throughout its journey.",
   },
   {
     title: "Experienced Team",
@@ -349,13 +349,14 @@ export const howItWorks = [
   },
   {
     step: 4,
-    title: "Track Your Shipment",
+    title: "Find Shipment Location",
     description:
-      "Monitor your cargo in real time through our tracking platform.",
+      "Track your shipment’s location in real time throughout its journey.",
   },
   {
     step: 5,
     title: "Safe Delivery",
-    description: "Your cargo arrives safely at its destination, on time.",
+    description:
+      "Track your shipment’s location in real time throughout its journey.",
   },
 ];
