@@ -15,14 +15,14 @@ import {
 } from "lucide-react";
 import Button from "../components/Button";
 import ServiceCard from "../components/ServiceCard";
-import TestimonialCard from "../components/TestimonialCard";
+import TestimonialCarousel from "../components/TestimonialCarousel";
 import StatsSection from "../components/StatsSection";
 import CTASection from "../components/CTASection";
 import SectionHeading from "../components/SectionHeading";
 import useInView from "../components/useInView";
 import {
   services,
-  testimonials,
+  reviews,
   stats,
   whyChooseUs,
   howItWorks,
@@ -160,13 +160,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="What Our Clients Say"
-            subtitle="Trusted by businesses across the UK and beyond."
+            subtitle="Real feedback from businesses across the UK and beyond."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={t.name} {...t} index={i} />
-            ))}
-          </div>
+          <TestimonialCarousel reviews={reviews} />
         </div>
       </section>
 
@@ -194,7 +190,7 @@ function HeroCarousel() {
     },
     {
       type: "image",
-      bg: "images/slide2.jpg",
+      bg: "images/slide-truck.jpg",
       alt: "Truck transporting goods on road",
       heading: "Reliable Transport Network",
       title: "Transport & Logistics",

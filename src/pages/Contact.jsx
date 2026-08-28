@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, Clock } from "lucide-react";
 import ContactForm from "../components/ContactForm";
 import SectionHeading from "../components/SectionHeading";
 import useInView from "../components/useInView";
@@ -9,24 +9,14 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+44 123 456 7890", "+44 123 456 7891"],
-    href: "tel:+441234567890",
+    details: ["+44 07300066079"],
+    href: "tel:+447300066079",
   },
   {
     icon: Mail,
     title: "Email",
     details: ["info@skyhaul.co.uk", "quotes@skyhaul.co.uk"],
     href: "mailto:info@skyhaul.co.uk",
-  },
-  {
-    icon: MapPin,
-    title: "Office Address",
-    details: [
-      "123 Logistics House",
-      "Freight Lane",
-      "London, EC2A 4BX",
-      "United Kingdom",
-    ],
   },
   {
     icon: Clock,
@@ -50,7 +40,7 @@ export default function Contact() {
         <title>Contact Us - Skyhaul Logistics | Get a Quote</title>
         <meta
           name="description"
-          content="Contact Skyhaul Logistics for freight quotes, logistics enquiries, and supply chain solutions. Call us, email us, or visit our London office."
+          content="Contact Skyhaul Logistics for freight quotes, logistics enquiries, and supply chain solutions. Call us or email us to get started."
         />
       </Helmet>
 
@@ -82,18 +72,15 @@ export default function Contact() {
             title="Get in Touch"
             subtitle="We'd love to hear from you. Reach out using any of the methods below."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
             {contactInfo.map((info, i) => (
               <ContactInfoCard key={info.title} {...info} index={i} />
             ))}
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Map Placeholder */}
-            <MapPlaceholder />
-
             {/* Contact Form */}
-            <div>
+            <div className="lg:col-span-2">
               <ContactForm />
             </div>
           </div>
@@ -131,29 +118,5 @@ function ContactInfoCard({ icon: Icon, title, details, href, index }) {
         ))}
       </div>
     </Wrapper>
-  );
-}
-
-function MapPlaceholder() {
-  const [ref, isInView] = useInView();
-
-  return (
-    <div
-      ref={ref}
-      className={`rounded-2xl overflow-hidden border border-navy-100 bg-navy-50 flex items-center justify-center min-h-[280px] sm:min-h-[400px] ${isInView ? "animate-fade-in" : "opacity-0"}`}
-    >
-      <div className="text-center p-8">
-        <MapPin size={48} className="text-navy-300 mx-auto mb-4" />
-        <h3 className="text-lg font-bold text-navy-900 mb-2">Our Location</h3>
-        <p className="text-navy-500 text-sm mb-4">
-          123 Logistics House, Freight Lane,
-          <br />
-          London, EC2A 4BX
-        </p>
-        <div className="w-full h-64 bg-navy-100 rounded-xl flex items-center justify-center">
-          <p className="text-navy-400 text-sm">Google Maps Integration</p>
-        </div>
-      </div>
-    </div>
   );
 }

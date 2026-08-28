@@ -73,11 +73,11 @@ export default function Navbar() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+441234567890"
+            href="tel:+447300066079"
             className="flex items-center gap-2 text-sm text-navy-600 hover:text-navy-900 transition-colors"
           >
             <Phone size={16} />
-            <span className="font-medium">+44 123 456 7890</span>
+            <span className="font-medium">+44 07300066079</span>
           </a>
           <Link
             to="/contact"
@@ -131,11 +131,11 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="tel:+441234567890"
+            href="tel:+447300066079"
             className="flex items-center gap-3 px-4 py-3 text-navy-600 font-medium"
           >
             <Phone size={18} />
-            +44 123 456 7890
+            +44 07300066079
           </a>
         </div>
       </div>

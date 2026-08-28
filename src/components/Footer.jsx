@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
 const LinkedinIcon = () => (
   <svg
@@ -153,21 +153,13 @@ export default function Footer() {
               Contact Us
             </h3>
             <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-white mt-0.5 shrink-0" />
-                <span className="text-navy-300 text-sm">
-                  123 Logistics House, Freight Lane,
-                  <br />
-                  London, EC2A 4BX, United Kingdom
-                </span>
-              </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-white shrink-0" />
                 <a
-                  href="tel:+441234567890"
+                  href="tel:+447300066079"
                   className="text-navy-300 hover:text-gold-400 text-sm transition-colors"
                 >
-                  +44 123 456 7890
+                  +44 07300066079
                 </a>
               </li>
               <li className="flex items-center gap-3">
