@@ -163,7 +163,7 @@ export default function Home() {
             <div className="min-w-0">
               <TestimonialCarousel reviews={reviews} />
             </div>
-            <div className="flex items-center">
+            <div className="flex items-start">
               <RatingBadge reviews={reviews} />
             </div>
           </div>
@@ -470,11 +470,7 @@ function RatingBadge({ reviews }) {
         <p className="text-2xl sm:text-3xl font-extrabold mb-2">Excellent</p>
         <div className="flex gap-1 justify-center mb-3">
           {Array.from({ length: 5 }).map((_, i) => (
-            <Star
-              key={i}
-              size={20}
-              className="fill-gold-400 text-gold-400"
-            />
+            <Star key={i} size={20} className="fill-gold-400 text-gold-400" />
           ))}
         </div>
       </div>
