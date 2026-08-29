@@ -12,6 +12,7 @@ import {
   Users,
   Truck,
   ArrowRightCircle,
+  Star,
 } from "lucide-react";
 import Button from "../components/Button";
 import ServiceCard from "../components/ServiceCard";
@@ -158,7 +159,12 @@ export default function Home() {
             title="What Our Clients Say"
             subtitle="Real feedback from businesses across the UK and beyond."
           />
-          <TestimonialCarousel reviews={reviews} />
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 items-stretch min-w-0">
+            <div className="min-w-0">
+              <TestimonialCarousel reviews={reviews} />
+            </div>
+            <RatingBadge reviews={reviews} />
+          </div>
         </div>
       </section>
 
@@ -444,6 +450,40 @@ function HowItWorksStep({ step, title, description }) {
       </div>
       <h3 className="font-bold text-navy-900 mb-2">{title}</h3>
       <p className="text-navy-500 text-sm leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+function RatingBadge({ reviews }) {
+  const [ref, isInView] = useInView();
+  const total = reviews.reduce((sum, r) => sum + (r.rating || 0), 0);
+  const avg = total / reviews.length;
+
+  return (
+    <div
+      ref={ref}
+      className={`flex lg:flex-col items-center justify-center gap-4 bg-navy-950 text-white rounded-2xl p-6 sm:p-8 text-center ${isInView ? "animate-fade-in-up" : "opacity-0"}`}
+    >
+      <div>
+        <p className="text-2xl sm:text-3xl font-extrabold mb-2">Excellent</p>
+        <div className="flex gap-1 justify-center mb-3">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <Star
+              key={i}
+              size={20}
+              className="fill-gold-400 text-gold-400"
+            />
+          ))}
+        </div>
+      </div>
+      <div>
+        <p className="text-4xl sm:text-5xl font-extrabold text-gold-400 mb-1">
+          {avg.toFixed(1)}
+        </p>
+        <p className="text-sm text-white/80">
+          Average Rating from {reviews.length} Reviews
+        </p>
+      </div>
     </div>
   );
 }

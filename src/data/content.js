@@ -80,14 +80,14 @@ export const reviews = [
     user: "Andreea Nedelcu",
     company: "DESPATCH PRO SERVICES LTD",
     gb: "GB 244312",
-    rating: 4,
+    rating: 5,
     comment: "Completed the job as requested.",
   },
   {
     user: "Joanne Traffic 4",
     company: "Ultimate Express",
     gb: "GB 35572",
-    rating: 4,
+    rating: 5,
     comment: "EXCELLENT SERVICE AS USUAL WOULD HIGHLY RECOMMEND",
   },
   {
@@ -102,7 +102,7 @@ export const reviews = [
     user: "PAUL TIPLADY",
     company: "NG TRANSPORT LTD",
     gb: "GB 70188",
-    rating: 4,
+    rating: 5,
     comment: "GREAT JOB THANK YOU",
   },
   {
@@ -116,7 +116,7 @@ export const reviews = [
     user: "Mo Makkan",
     company: "FREIGHT POINT TRANSPORT & LOGISTICS LTD",
     gb: "GB 272374",
-    rating: 4,
+    rating: 5,
     comment: "ALWAYS A PLEASURE TO WORK WITH GUY WOULD WORK FOR AGAIN",
   },
   {

@@ -176,7 +176,7 @@ export default function Footer() {
           <p className="text-navy-400 text-xs">
             &copy; 2026 Skyhaul Logistics. All Rights Reserved.
           </p>
-          <div className="flex gap-6">
+          {/* <div className="flex gap-6">
             <a
               href="#"
               className="text-navy-400 hover:text-navy-200 text-xs transition-colors"
@@ -189,7 +189,7 @@ export default function Footer() {
             >
               Terms &amp; Conditions
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

@@ -45,7 +45,7 @@ export default function TestimonialCarousel({ reviews }) {
 
   return (
     <div
-      className="relative"
+      className="relative w-full max-w-full"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
@@ -59,7 +59,7 @@ export default function TestimonialCarousel({ reviews }) {
           {reviews.map((review, i) => (
             <div
               key={i}
-              className="px-3 shrink-0"
+              className="shrink-0 px-3 box-border"
               style={{ width: `${100 / perView}%` }}
             >
               <ReviewCard {...review} />
@@ -71,14 +71,14 @@ export default function TestimonialCarousel({ reviews }) {
       <button
         onClick={goPrev}
         aria-label="Previous testimonials"
-        className="absolute -left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 hidden sm:flex"
+        className="absolute left-0 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 z-10"
       >
         <ChevronLeft size={20} />
       </button>
       <button
         onClick={goNext}
         aria-label="Next testimonials"
-        className="absolute -right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 hidden sm:flex"
+        className="absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 z-10"
       >
         <ChevronRight size={20} />
       </button>
