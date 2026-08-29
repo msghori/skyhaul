@@ -159,11 +159,13 @@ export default function Home() {
             title="What Our Clients Say"
             subtitle="Real feedback from businesses across the UK and beyond."
           />
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 items-stretch min-w-0">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_260px] gap-8 min-w-0">
             <div className="min-w-0">
               <TestimonialCarousel reviews={reviews} />
             </div>
-            <RatingBadge reviews={reviews} />
+            <div className="flex items-center">
+              <RatingBadge reviews={reviews} />
+            </div>
           </div>
         </div>
       </section>
