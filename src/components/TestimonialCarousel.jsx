@@ -71,14 +71,14 @@ export default function TestimonialCarousel({ reviews }) {
       <button
         onClick={goPrev}
         aria-label="Previous testimonials"
-        className="absolute left-0 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 z-10"
+        className="absolute left-0 lg:-left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 z-10 cursor-pointer"
       >
         <ChevronLeft size={20} />
       </button>
       <button
         onClick={goNext}
         aria-label="Next testimonials"
-        className="absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 z-10"
+        className="absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white shadow-lg border border-navy-100 flex items-center justify-center text-navy-700 hover:bg-skyblue hover:text-white transition-colors duration-300 z-10  cursor-pointer"
       >
         <ChevronRight size={20} />
       </button>
@@ -90,7 +90,9 @@ export default function TestimonialCarousel({ reviews }) {
             onClick={() => setIndex(i)}
             aria-label={`Go to testimonial ${i + 1}`}
             className={`h-2.5 rounded-full transition-all duration-300 ${
-              i === index ? "bg-skyblue w-7" : "bg-navy-200 hover:bg-navy-300 w-2.5"
+              i === index
+                ? "bg-skyblue w-7"
+                : "bg-navy-200 hover:bg-navy-300 w-2.5"
             }`}
           />
         ))}
@@ -126,7 +128,9 @@ function ReviewCard({ user, company, gb, comment, rating = 5 }) {
         <div className="min-w-0">
           <p className="font-bold text-navy-900 text-sm truncate">{user}</p>
           <p className="text-navy-500 text-xs truncate">{company}</p>
-          {gb && <p className="text-navy-400 text-[10px] font-semibold">{gb}</p>}
+          {gb && (
+            <p className="text-navy-400 text-[10px] font-semibold">{gb}</p>
+          )}
         </div>
       </div>
     </div>
