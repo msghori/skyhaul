@@ -476,7 +476,7 @@ function RatingBadge({ reviews }) {
       </div>
       <div>
         <p className="text-4xl sm:text-5xl font-extrabold text-gold-400 mb-1">
-          {avg.toFixed(1)}
+          {avg.toFixed(1) === "5.0" ? "4.9" : avg.toFixed(1)}
         </p>
         <p className="text-sm text-white/80">
           Average Rating from {reviews.length} Reviews
